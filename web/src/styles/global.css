@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: #f4f4f6;
+  font-family: 'Onest', sans-serif;
+  color: #1c1c24;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: #e2dbfe;
+}
+::placeholder {
+  color: #a9a9b4;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #dedee4;
+  border-radius: 6px;
+  border: 3px solid #f4f4f6;
+}
+
+/* Redesign keyframes (mq-*) */
+@keyframes mq-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes mq-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(32px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+input,
+textarea,
+select {
+  font-family: 'Onest', sans-serif;
+}

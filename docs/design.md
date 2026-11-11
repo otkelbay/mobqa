@@ -207,7 +207,7 @@ of at most 100. Auth: short-lived JWT access tokens and rotating refresh tokens.
 - [x] session recordings: the hub films attempts from the SFU and uploads mp4s
 - [x] e2e suite: every domain over HTTP, plus the three binaries as processes
 - [x] switch: the old backend removed, root README, docker compose quickstart, CI
-- [ ] web app: port to this API (published separately once it is done)
+- [x] web app: ported to this API (`web/`)
 - [ ] iOS bridge: publish with the stream key over WHIP-style `POST`
 
 ## Decision log

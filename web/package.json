@@ -1,0 +1,33 @@
+{
+  "name": "mobqa-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,css}\" \"*.{js,json,html}\"",
+    "test": "vitest run",
+    "verify": "npm run lint && npm run format:check && npm run test && npm run build"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "^7.18.0"
+  },
+  "devDependencies": {
+    "@babel/generator": "^7.29.1",
+    "@babel/parser": "^7.29.2",
+    "@babel/traverse": "^7.29.0",
+    "@babel/types": "^7.29.0",
+    "@eslint/js": "^10.0.1",
+    "@vitejs/plugin-react": "latest",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
+    "prettier": "^3.8.3",
+    "vite": "latest",
+    "vitest": "^4.1.5"
+  }
+}

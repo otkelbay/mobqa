@@ -7,6 +7,7 @@
 **Describe a mobile test in plain language. An agent writes it on a real phone. Runs replay it.**
 
 [![server](https://github.com/otkelbay/mobqa/actions/workflows/server.yml/badge.svg)](https://github.com/otkelbay/mobqa/actions/workflows/server.yml)
+[![web](https://github.com/otkelbay/mobqa/actions/workflows/web.yml/badge.svg)](https://github.com/otkelbay/mobqa/actions/workflows/web.yml)
 [![Go](https://img.shields.io/badge/Go-1.25-00ADD8?logo=go&logoColor=white)](server/go.mod)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16%20%2B%20pgvector-4169E1?logo=postgresql&logoColor=white)](server/internal/store/postgres/migrations)
 [![Coverage](https://img.shields.io/badge/coverage-84%25-brightgreen)](#test-coverage)
@@ -25,8 +26,9 @@ replayable script, and keeps notes on what it learned about the app for next
 time. Runs replay those scripts on any phone attached to your hubs, with
 retries, per-step results and a video of every attempt.
 
-This repository contains the Go backend ([`server/`](server)) and the iOS
-screen-streaming bridge ([`ios/`](ios/mobqa-ios-bridge)).
+This repository contains the Go backend ([`server/`](server)), the React web
+app ([`web/`](web)) and the iOS screen-streaming bridge
+([`ios/`](ios/mobqa-ios-bridge)).
 
 ## How it works
 
@@ -179,9 +181,10 @@ those processes is not collected.
 - [x] Remote control and live screens: a WebRTC SFU on the hub, signalling relayed by the API
 - [x] A video of every attempt on streaming devices, recorded on the hub without re-encoding
 
+- [x] Web app: tests and versions, agent edits, authoring logs, runs with attempt videos, builds, hubs and devices, knowledge, environments, API actions, remote control
+
 **Planned**
 
-- [ ] Web app on this API (being ported from the prototype)
 - [ ] iOS bridge publishing with a per-device stream key, WHIP-style
 - [ ] Installing IPA builds on iOS devices from the hub
 - [ ] Attempt videos for Android devices without a screen broadcaster
@@ -208,6 +211,12 @@ MOBQA_API_URL=http://localhost:18080 MOBQA_HUB_TOKEN=mqh_... ./bin/mobqa-hub
 
 The hub needs `adb` for Android and Xcode's `devicectl` for iOS. With `ffmpeg`
 installed it also records attempt videos.
+
+**Web app** (Node 22):
+
+```sh
+cd web && cp .env.example .env && npm install && npm run dev   # http://localhost:5173
+```
 
 ## Configuration
 
@@ -243,6 +252,9 @@ make check                                         # gofmt, vet, staticcheck, go
 MOBQA_TEST_DATABASE_URL=postgres://... make check  # plus integration and end-to-end tests
 MOBQA_TEST_DATABASE_URL=postgres://... make cover  # combined coverage of all three levels
 ```
+
+The web app is checked with `npm run verify` in `web/`: ESLint, Prettier,
+Vitest and a production build.
 
 ```
 server/
