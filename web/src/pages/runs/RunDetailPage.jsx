@@ -4,6 +4,7 @@ import { useProject } from '../../context/ProjectContext.jsx';
 import { runApi } from '../../services/apiRepository.js';
 import { T, fonts } from '../../styles/tokens.js';
 import { css } from '../../styles/styleRegistry.js';
+import { countLabel } from '../../services/viewModelMappers.js';
 import { BackLink, Button, Card, ErrorNote, Page, Spinner } from '../../components/ui/primitives.jsx';
 import { PlatformBadge, StatusBadge } from '../../components/ui/Badges.jsx';
 
@@ -113,13 +114,15 @@ function ResultRow({ projectId, runId, result }) {
           textAlign: 'left',
         })}
       >
-        <StatusBadge status={result.status} size="sm" />
+        <span className={css({ display: 'flex', width: 96, flexShrink: 0 })}>
+          <StatusBadge status={result.status} size="sm" />
+        </span>
         <span className={css({ flex: 1, minWidth: 0 })}>
           <span className={css({ display: 'block', fontSize: 14, fontWeight: 600, color: T.textPrimary })}>
             {result.title}
           </span>
           <span className={css({ display: 'block', fontSize: 12.5, color: T.textTertiary, marginTop: 3 })}>
-            {result.deviceName} · v{result.testVersion} · {result.attempts} attempts · {result.duration}
+            {result.deviceName} · v{result.testVersion} · {countLabel(result.attempts, 'attempt')} · {result.duration}
           </span>
         </span>
         {result.error && (
@@ -193,7 +196,7 @@ function RunDetailPage() {
   return (
     <Page
       title={`Run · ${run.created}`}
-      subtitle={`${run.buildLabel || 'Installed app'}${run.environmentName ? ` · ${run.environmentName}` : ''} · up to ${run.retries} retries`}
+      subtitle={`${run.buildLabel || 'Installed app'}${run.environmentName ? ` · ${run.environmentName}` : ''} · up to ${countLabel(run.retries, 'retry')}`}
       back={back}
       actions={
         active &&

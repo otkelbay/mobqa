@@ -53,7 +53,7 @@ function NewTestPage() {
         <Card>
           <ErrorNote error={error} />
           {platforms.length > 1 && (
-            <Field label="Platform">
+            <Field group label="Platform">
               <SegmentedTabs items={platforms} value={platform || platforms[0].value} onChange={setPlatform} />
             </Field>
           )}

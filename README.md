@@ -13,7 +13,7 @@
 [![Coverage](https://img.shields.io/badge/coverage-84%25-brightgreen)](#test-coverage)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 
-[How it works](#how-it-works) · [Architecture](#architecture) · [Engineering](#engineering-highlights) · [Quality](#code-quality) · [Coverage](#test-coverage) · [Roadmap](#what-is-built-and-what-is-next) · [Quick start](#quick-start)
+[How it works](#how-it-works) · [Screenshots](#screenshots) · [Architecture](#architecture) · [Engineering](#engineering-highlights) · [Quality](#code-quality) · [Coverage](#test-coverage) · [Roadmap](#what-is-built-and-what-is-next) · [Quick start](#quick-start)
 
 </div>
 
@@ -30,6 +30,8 @@ This repository contains the Go backend ([`server/`](server)), the React web
 app ([`web/`](web)) and the iOS screen-streaming bridge
 ([`ios/`](ios/mobqa-ios-bridge)).
 
+<p align="center"><img src="docs/assets/screenshots/run.png" alt="A run: results per test and device, with a flaky retry and a failed step"></p>
+
 ## How it works
 
 | | |
@@ -39,6 +41,29 @@ app ([`web/`](web)) and the iOS screen-streaming bridge
 | **3. Learn** | Knowledge notes are retrieved into every prompt. After each authoring, a review job writes the lessons the agent learned back into the project's knowledge. |
 | **4. Run** | Scripts replay on any matching device, with retries. A pass after a failure is marked flaky, and each attempt is filmed. |
 | **5. Watch** | Live device screens stream to the browser over WebRTC. Engineers can tap and type on a remote phone. |
+
+## Screenshots
+
+<table>
+<tr>
+<td width="50%" valign="top"><img src="docs/assets/screenshots/tests.png" alt="Tests: plain-language steps, priorities and tags"><br><sub>Tests: plain-language steps, priorities and tags</sub></td>
+<td width="50%" valign="top"><img src="docs/assets/screenshots/test.png" alt="A test: steps, and an instruction box for agent edits"><br><sub>A test: steps, and an instruction box for agent edits</sub></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><img src="docs/assets/screenshots/authoring.png" alt="Authoring: what the agent saw, thought and did on the phone"><br><sub>Authoring: what the agent saw, thought and did on the phone</sub></td>
+<td width="50%" valign="top"><img src="docs/assets/screenshots/history.png" alt="Version history with a step-level diff"><br><sub>Version history with a step-level diff</sub></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><img src="docs/assets/screenshots/launch.png" alt="Launching a run on several devices"><br><sub>Launching a run on several devices</sub></td>
+<td width="50%" valign="top"><img src="docs/assets/screenshots/control.png" alt="Remote control of a phone from the browser"><br><sub>Remote control of a phone from the browser</sub></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><img src="docs/assets/screenshots/devices.png" alt="Hubs and the devices attached to them"><br><sub>Hubs and the devices attached to them</sub></td>
+<td width="50%" valign="top"><img src="docs/assets/screenshots/knowledge.png" alt="Knowledge the agent retrieves, including notes it wrote itself"><br><sub>Knowledge the agent retrieves, including notes it wrote itself</sub></td>
+</tr>
+</table>
+
+<sub>The screenshots show a fictional demo project on emulated devices.</sub>
 
 ## Architecture
 

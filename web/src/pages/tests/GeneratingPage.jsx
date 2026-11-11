@@ -4,6 +4,7 @@ import { useProject } from '../../context/ProjectContext.jsx';
 import { testApi } from '../../services/apiRepository.js';
 import { T } from '../../styles/tokens.js';
 import { css } from '../../styles/styleRegistry.js';
+import { countLabel } from '../../services/viewModelMappers.js';
 import { BackLink, Button, Card, ErrorNote, ListRow, Page, Spinner } from '../../components/ui/primitives.jsx';
 import { StatusBadge } from '../../components/ui/Badges.jsx';
 
@@ -50,7 +51,7 @@ function GeneratingPage() {
           <StatusBadge status={status || 'pending'} />
           <span className={css({ fontSize: 13.5, color: T.textSecondary })}>
             {status === 'succeeded' &&
-              `${generation.test_ids.length} tests drafted. Review the steps, then author them.`}
+              `${countLabel(generation.test_ids.length, 'test')} drafted. Review the steps, then author them.`}
             {status === 'failed' && (generation.failure || 'The model could not draft tests from this brief.')}
             {(!status || status === 'pending') && 'The model is reading the brief and what it knows about the app…'}
           </span>
@@ -62,7 +63,7 @@ function GeneratingPage() {
             <span className={css({ flex: 1, fontSize: 14.5, fontWeight: 600, color: T.textPrimary })}>
               {test.title}
             </span>
-            <span className={css({ fontSize: 12.5, color: T.textTertiary })}>{test.stepCount} steps</span>
+            <span className={css({ fontSize: 12.5, color: T.textTertiary })}>{countLabel(test.stepCount, 'step')}</span>
           </ListRow>
         </div>
       ))}

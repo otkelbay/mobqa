@@ -33,7 +33,7 @@ const MODES = [
 
 const screenStyle = css({
   display: 'block',
-  maxHeight: '72vh',
+  maxHeight: '68vh',
   maxWidth: '100%',
   borderRadius: 18,
   background: '#000',
@@ -100,7 +100,7 @@ function Controls({ packageName, send }) {
   const [url, setUrl] = React.useState('');
   return (
     <Card>
-      <Field label="Type">
+      <Field group label="Type">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -139,7 +139,7 @@ function Controls({ packageName, send }) {
           </Button>
         </div>
       )}
-      <Field label="Open a link">
+      <Field group label="Open a link">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -224,7 +224,14 @@ function DeviceControlPage() {
           {mode === 'video' ? status : 'Refreshes about once a second'}
         </span>
       </div>
-      <div className={css({ display: 'grid', gridTemplateColumns: editable ? 'auto 1fr' : 'auto', gap: 24 })}>
+      <div
+        className={css({
+          display: 'grid',
+          gridTemplateColumns: editable ? 'auto 1fr' : 'auto',
+          alignItems: 'start',
+          gap: 24,
+        })}
+      >
         <div>
           {mode === 'video' ? (
             <WebRTCPlayer

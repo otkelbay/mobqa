@@ -111,7 +111,7 @@ function ActionEditor({ projectId, action, onDone }) {
       <Field label="Description">
         <TextInput value={draft.description} onChange={(e) => setDraft({ ...draft, description: e.target.value })} />
       </Field>
-      <Field label="Request" hint="Use {{NAME}} for environment variables, e.g. {{API_URL}}/otp?phone={{PHONE}}.">
+      <Field group label="Request" hint="Use {{NAME}} for environment variables, e.g. {{API_URL}}/otp?phone={{PHONE}}.">
         <div className={css({ display: 'flex', gap: 8 })}>
           <Select
             options={METHODS}
@@ -127,7 +127,7 @@ function ActionEditor({ projectId, action, onDone }) {
           />
         </div>
       </Field>
-      <Field label="Headers">
+      <Field group label="Headers">
         <PairList
           rows={draft.request.headers}
           keys={['name', 'value']}
@@ -154,7 +154,11 @@ function ActionEditor({ projectId, action, onDone }) {
           style={{ ...compact, width: 120 }}
         />
       </Field>
-      <Field label="Extract into variables" hint="A regular expression with one group, applied to the response body.">
+      <Field
+        group
+        label="Extract into variables"
+        hint="A regular expression with one group, applied to the response body."
+      >
         <PairList
           rows={draft.request.extract}
           keys={['variable', 'pattern']}

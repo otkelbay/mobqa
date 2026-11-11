@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useProject } from '../../context/ProjectContext.jsx';
 import { T } from '../../styles/tokens.js';
 import { css } from '../../styles/styleRegistry.js';
+import { countLabel } from '../../services/viewModelMappers.js';
 import { Button, EmptyState, IconChip, ListRow, Page, Select, TextInput } from '../../components/ui/primitives.jsx';
 import { PlatformBadge } from '../../components/ui/Badges.jsx';
 import { IconChevronRight, IconPlus, IconTests } from '../../components/ui/icons.jsx';
@@ -51,7 +52,7 @@ function TestRow({ test, onOpen }) {
         <span className={css({ display: 'flex', alignItems: 'center', gap: 10, marginTop: 5, fontSize: 12.5 })}>
           <span className={css({ fontWeight: 600, color: PRIORITY_COLORS[test.priority] })}>{test.priority}</span>
           <span className={css({ color: T.textTertiary })}>
-            {test.stepCount} steps · v{test.version} · {test.source} · updated {test.updated}
+            {countLabel(test.stepCount, 'step')} · v{test.version} · {test.source} · updated {test.updated}
           </span>
           {test.tags.map((tag) => (
             <span

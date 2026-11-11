@@ -55,6 +55,11 @@ function formatBytes(bytes) {
 
 const PLATFORM_LABELS = { android: 'Android', ios: 'iOS' };
 
+function countLabel(count, noun) {
+  if (count === 1) return `1 ${noun}`;
+  return `${count} ${noun.endsWith('y') ? `${noun.slice(0, -1)}ies` : `${noun}s`}`;
+}
+
 function platformLabel(platform) {
   return PLATFORM_LABELS[platform] || platform;
 }
@@ -190,7 +195,10 @@ function mapVersion(version) {
     description: version.description || '',
     stepCount: version.step_count,
     source: version.source,
-    sourceLabel: CHANGE_LABELS[version.source] || version.source,
+    sourceLabel:
+      version.version === 1 && version.source === 'manual'
+        ? 'Created'
+        : CHANGE_LABELS[version.source] || version.source,
     note: version.note || '',
     created: formatDateTime(version.created_at, true),
     steps: (version.steps || []).map((step, index) => stepFromApi(step, `v${version.version}-${index}`)),
@@ -317,6 +325,7 @@ function mapAction(action) {
 }
 
 export {
+  countLabel,
   formatDate,
   formatDateTime,
   formatRelative,

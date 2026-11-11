@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatRelative, mapDevice, mapRun, platformLabel, scriptState } from './viewModelMappers.js';
+import { formatRelative, mapDevice, mapRun, mapVersion, platformLabel, scriptState } from './viewModelMappers.js';
 
 describe('scriptState', () => {
   const test = { version: 3 };
@@ -57,6 +57,12 @@ describe('mappers', () => {
     });
     expect(run.duration).toBe('1 min 5 s');
     expect(run.buildLabel).toBe('');
+  });
+
+  it('labels the first manual version as created', () => {
+    expect(mapVersion({ version: 1, source: 'manual' }).sourceLabel).toBe('Created');
+    expect(mapVersion({ version: 2, source: 'manual' }).sourceLabel).toBe('Edited');
+    expect(mapVersion({ version: 1, source: 'generate' }).sourceLabel).toBe('Generated');
   });
 
   it('keeps an unknown platform as is', () => {

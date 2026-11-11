@@ -101,7 +101,7 @@ function LaunchPanel({ preselected, onLaunched, onCancel }) {
     <Card>
       <ErrorNote error={error} />
       {project?.platforms.length > 1 && (
-        <Field label="Platform">
+        <Field group label="Platform">
           <SegmentedTabs
             items={project.platforms.map((value) => ({ value, label: platformLabel(value) }))}
             value={platform}
@@ -110,7 +110,7 @@ function LaunchPanel({ preselected, onLaunched, onCancel }) {
         </Field>
       )}
       <div className={css({ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 16 })}>
-        <Field label="Tests">
+        <Field group label="Tests">
           <CheckList
             items={tests
               .filter((test) => test.platform === platform)
@@ -120,7 +120,7 @@ function LaunchPanel({ preselected, onLaunched, onCancel }) {
             empty="No tests for this platform."
           />
         </Field>
-        <Field label="Devices">
+        <Field group label="Devices">
           <CheckList
             items={devices
               .filter((device) => device.platform === platform)

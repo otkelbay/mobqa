@@ -275,7 +275,9 @@ function AuthoringList({ projectId, authorings }) {
     <div className={css({ display: 'flex', flexDirection: 'column', gap: 9 })}>
       {authorings.map((authoring) => (
         <ListRow key={authoring.id} onClick={() => navigate(`/apps/${projectId}/authorings/${authoring.id}`)}>
-          <StatusBadge status={authoring.status} size="sm" />
+          <span className={css({ display: 'flex', width: 96, flexShrink: 0 })}>
+            <StatusBadge status={authoring.status} size="sm" />
+          </span>
           <span className={css({ fontFamily: fonts.mono, fontSize: 13, color: T.textMuted })}>
             v{authoring.testVersion}
           </span>

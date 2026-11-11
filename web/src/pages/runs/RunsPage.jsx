@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useProject } from '../../context/ProjectContext.jsx';
 import { T, fonts } from '../../styles/tokens.js';
 import { css } from '../../styles/styleRegistry.js';
+import { countLabel } from '../../services/viewModelMappers.js';
 import { Button, EmptyState, ListRow, Page, SegmentedTabs } from '../../components/ui/primitives.jsx';
 import { PlatformBadge, StatusBadge } from '../../components/ui/Badges.jsx';
 import { IconChevronRight, IconPlay, IconRuns } from '../../components/ui/icons.jsx';
@@ -44,10 +45,12 @@ function Summary({ summary }) {
 function RunRow({ run, onOpen }) {
   return (
     <ListRow onClick={onOpen}>
-      <StatusBadge status={run.status} size="sm" />
+      <span className={css({ display: 'flex', width: 96, flexShrink: 0 })}>
+        <StatusBadge status={run.status} size="sm" />
+      </span>
       <span className={css({ flex: 1, minWidth: 0 })}>
         <span className={css({ display: 'block', fontSize: 14, fontWeight: 600, color: T.textPrimary })}>
-          {run.summary.total} results · {run.buildLabel || 'installed app'}
+          {countLabel(run.summary.total, 'result')} · {run.buildLabel || 'installed app'}
           {run.environmentName && ` · ${run.environmentName}`}
         </span>
         <span className={css({ display: 'block', fontSize: 12.5, color: T.textTertiary, marginTop: 3 })}>

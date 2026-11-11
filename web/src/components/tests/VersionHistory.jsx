@@ -4,6 +4,7 @@ import { actionLabel } from '../../services/testStepModel.js';
 import { testApi } from '../../services/apiRepository.js';
 import { T, fonts } from '../../styles/tokens.js';
 import { css } from '../../styles/styleRegistry.js';
+import { countLabel } from '../../services/viewModelMappers.js';
 import { Button, Card, ErrorNote, Spinner } from '../ui/primitives.jsx';
 
 const ROW_TONES = {
@@ -98,7 +99,7 @@ function VersionRow({ projectId, testId, version, previous, current, editable, o
         </span>
         <span className={css({ flex: 1, fontSize: 13.5, color: T.textPrimary })}>{version.note || version.title}</span>
         <span className={css({ fontSize: 12, color: T.textTertiary })}>
-          {version.stepCount} steps · {version.created}
+          {countLabel(version.stepCount, 'step')} · {version.created}
         </span>
       </button>
       {open && (

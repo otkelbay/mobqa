@@ -102,7 +102,7 @@ function NewAppPage() {
           <Field label="Project name">
             <TextInput value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Shop" required />
           </Field>
-          <Field label="Platforms">
+          <Field group label="Platforms">
             <SegmentedTabs items={PLATFORMS} value={platform} onChange={setPlatform} variant="card" />
           </Field>
           <Field label="Package name" hint="The Android package or iOS bundle id the agent launches.">

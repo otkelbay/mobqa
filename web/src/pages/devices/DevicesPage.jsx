@@ -82,7 +82,8 @@ function DeviceRow({ device, admin, onOpen, onStreamKey }) {
           {device.name}
         </span>
         <span className={css({ display: 'block', fontSize: 12, color: T.textTertiary, marginTop: 2 })}>
-          {device.os} · {device.physical ? 'phone' : 'emulator'} · seen {device.lastSeen}
+          {device.os} · {device.physical ? 'phone' : 'emulator'}
+          {device.status !== 'online' && ` · seen ${device.lastSeen}`}
         </span>
       </span>
       <Status online={device.status} label={device.status} />

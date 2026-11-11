@@ -242,7 +242,9 @@ function KnowledgePage() {
     }
   };
 
-  const visible = (notes || []).filter((note) => filter === 'all' || note.kind === filter);
+  const visible = (notes || [])
+    .filter((note) => filter === 'all' || note.kind === filter)
+    .sort((a, b) => Number(b.pinned) - Number(a.pinned));
 
   return (
     <Page

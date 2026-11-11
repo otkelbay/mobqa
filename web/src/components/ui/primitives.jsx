@@ -310,9 +310,15 @@ function Button({ variant = 'primary', size = 'md', disabled, busy, children, ty
   );
 }
 
-function Field({ label, hint, children }) {
+// Field labels one control; with group it titles several controls, which a <label> must not contain.
+function Field({ label, hint, group = false, children }) {
+  const Tag = group ? 'div' : 'label';
   return (
-    <label className={css({ display: 'block', marginBottom: 16 })}>
+    <Tag
+      role={group ? 'group' : undefined}
+      aria-label={group ? label : undefined}
+      className={css({ display: 'block', marginBottom: 16 })}
+    >
       <span className={css({ display: 'block', fontSize: 13, fontWeight: 600, color: T.textMedium, marginBottom: 7 })}>
         {label}
       </span>
@@ -320,7 +326,7 @@ function Field({ label, hint, children }) {
       {hint && (
         <span className={css({ display: 'block', fontSize: 12, color: T.textTertiary, marginTop: 6 })}>{hint}</span>
       )}
-    </label>
+    </Tag>
   );
 }
 

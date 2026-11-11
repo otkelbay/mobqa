@@ -92,7 +92,7 @@ function GeneralSection({ project, editable, onSaved }) {
         <Field label="Name">
           <TextInput value={form.name} onChange={set('name')} disabled={!editable} required />
         </Field>
-        <Field label="Platforms">
+        <Field group label="Platforms">
           <SegmentedTabs
             items={PLATFORMS}
             value={form.platform}
