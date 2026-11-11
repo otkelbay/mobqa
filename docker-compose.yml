@@ -1,0 +1,47 @@
+name: mobqa
+
+x-server: &server
+  build: ./server
+  restart: unless-stopped
+  depends_on:
+    postgres:
+      condition: service_healthy
+  volumes:
+    - blobs:/var/lib/mobqa/data
+  environment:
+    DATABASE_URL: postgres://mobqa:mobqa@postgres:5432/mobqa?sslmode=disable
+    MOBQA_TOKEN_SECRET: ${MOBQA_TOKEN_SECRET:?set MOBQA_TOKEN_SECRET in .env}
+    MOBQA_SECRET_KEY: ${MOBQA_SECRET_KEY:?set MOBQA_SECRET_KEY in .env}
+    MOBQA_LLM_API_KEY: ${MOBQA_LLM_API_KEY:-}
+    MOBQA_LLM_MODEL: ${MOBQA_LLM_MODEL:-anthropic/claude-sonnet-5}
+    MOBQA_CORS_ORIGINS: ${MOBQA_CORS_ORIGINS:-http://localhost:5173}
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mobqa
+      POSTGRES_PASSWORD: mobqa
+      POSTGRES_DB: mobqa
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mobqa -d mobqa"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  api:
+    <<: *server
+    entrypoint: ["mobqa-api"]
+    ports:
+      - "127.0.0.1:18080:18080"
+
+  worker:
+    <<: *server
+    entrypoint: ["mobqa-worker"]
+
+volumes:
+  postgres:
+  blobs:

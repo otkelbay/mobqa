@@ -1,0 +1,18 @@
+services:
+  coturn:
+    image: coturn/coturn:4.6.3
+    network_mode: host
+    restart: unless-stopped
+    command:
+      - -n
+      - --log-file=stdout
+      - --fingerprint
+      - --use-auth-secret
+      - --static-auth-secret=${TURN_SECRET}
+      - --realm=${TURN_REALM}
+      - --external-ip=${TURN_EXTERNAL_IP}
+      - --min-port=${TURN_MIN_PORT}
+      - --max-port=${TURN_MAX_PORT}
+      - --no-tls
+      - --no-dtls
+      - --no-cli

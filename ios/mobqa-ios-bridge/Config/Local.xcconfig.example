@@ -1,0 +1,13 @@
+// Copy to Config/Local.xcconfig and fill in.
+
+MOBQA_BUNDLE_ID = com.example.mobqa.bridge
+DEVELOPMENT_TEAM = ABCDE12345
+
+// Manual signing, if your team cannot use automatic signing:
+// CODE_SIGN_STYLE = Manual
+// MOBQA_HOST_PROFILE = mobqa bridge host
+// MOBQA_BROADCAST_PROFILE = mobqa bridge broadcast
+
+MOBQA_WEBRTC_BACKEND_URL = https:/$()/mobqa.example.com
+MOBQA_WEBRTC_DEVICE_ID = <device id from the MobQA devices page>
+MOBQA_WEBRTC_BRIDGE_TOKEN = <MOBQA_WEBRTC_BRIDGE_TOKEN of the API>

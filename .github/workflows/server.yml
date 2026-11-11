@@ -1,0 +1,44 @@
+name: server
+
+on:
+  push:
+    branches: [main]
+    paths: ["server/**", ".github/workflows/server.yml"]
+  pull_request:
+    paths: ["server/**", ".github/workflows/server.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: mobqa
+          POSTGRES_PASSWORD: mobqa
+          POSTGRES_DB: mobqa_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U mobqa -d mobqa_test"
+          --health-interval 2s
+          --health-timeout 3s
+          --health-retries 30
+    env:
+      MOBQA_TEST_DATABASE_URL: postgres://mobqa:mobqa@localhost:5432/mobqa_test?sslmode=disable
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: server/go.mod
+          cache-dependency-path: server/go.sum
+      - name: Install linters
+        run: |
+          go install honnef.co/go/tools/cmd/staticcheck@2025.1.1
+          go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.1.6
+      - run: make check

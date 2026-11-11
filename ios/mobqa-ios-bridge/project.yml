@@ -1,0 +1,48 @@
+name: MobQADeviceBridge
+options:
+  deploymentTarget:
+    iOS: "16.0"
+configFiles:
+  Debug: Config/Base.xcconfig
+  Release: Config/Base.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+packages:
+  LiveKitWebRTC:
+    url: https://github.com/livekit/webrtc-xcframework.git
+    exactVersion: 144.7559.11
+targets:
+  MobQADeviceBridge:
+    type: application
+    platform: iOS
+    sources:
+      - Host
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(MOBQA_BUNDLE_ID)
+        PROVISIONING_PROFILE_SPECIFIER: $(MOBQA_HOST_PROFILE)
+        INFOPLIST_FILE: Host/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+    dependencies:
+      - target: MobQABroadcastUpload
+        embed: true
+  MobQABroadcastUpload:
+    type: app-extension
+    platform: iOS
+    sources:
+      - Broadcast
+    dependencies:
+      # LiveKitWebRTC is a binary xcframework; without embedding it into the .appex
+      # the extension crashes at launch with "Library not loaded: @rpath/LiveKitWebRTC".
+      - package: LiveKitWebRTC
+        product: LiveKitWebRTC
+        embed: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(MOBQA_BUNDLE_ID).broadcast
+        PROVISIONING_PROFILE_SPECIFIER: $(MOBQA_BROADCAST_PROFILE)
+        INFOPLIST_FILE: Broadcast/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        APPLICATION_EXTENSION_API_ONLY: YES
+        SKIP_INSTALL: YES

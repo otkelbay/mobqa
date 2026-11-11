@@ -1,0 +1,38 @@
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local env
+.env
+.env.*
+!.env.example
+
+# Local state and tool output
+.mobqa/
+.playwright-mcp/
+graphify-out/
+uploads/
+artifacts/
+
+# Local agent / assistant configs
+.claude/
+.codex/
+.opencode/
+/opencode.json
+
+# Node
+node_modules/
+dist/
+playwright-report/
+test-results/
+
+# Go build output
+/server/bin/
+/server/data/
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/

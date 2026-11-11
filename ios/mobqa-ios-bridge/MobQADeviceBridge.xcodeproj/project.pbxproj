@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1193FC49550FC40F49950952 /* LiveKitWebRTC in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 700AF12CA58D755B65EB9ACC /* LiveKitWebRTC */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3486CA351724AFCF1B6A12DF /* LiveKitWebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = 700AF12CA58D755B65EB9ACC /* LiveKitWebRTC */; };
+		3CDA9F05F70F5C5ED2F12646 /* WebRTCVideoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A5A7EFB91CA8DC99B3DF2B /* WebRTCVideoSource.swift */; };
+		5608ED350EE12BE5ED52E896 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756A039161167FA08E73829 /* SampleHandler.swift */; };
+		93CAE3BBD817E3EF3442243F /* WebRTCProducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A0A8C4DEDDFEFA94E9855 /* WebRTCProducer.swift */; };
+		EFB67960E9A43F51B9413C67 /* MobQADeviceBridgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D88D4762787407DD865E1 /* MobQADeviceBridgeApp.swift */; };
+		FCF879C83B68B046F9D786A4 /* MobQABroadcastUpload.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6EA4CD1B9E3649DE7E9EFBE6 /* MobQABroadcastUpload.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B11AC4697CCCCD69BB4CF49E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36B72B40592C4C4F0532D269 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8951B352DB0DAA8A7647E27;
+			remoteInfo = MobQABroadcastUpload;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4FF670215FD99BAD9B81D56B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FCF879C83B68B046F9D786A4 /* MobQABroadcastUpload.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9814FEAF528AEA7698F9AD7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1193FC49550FC40F49950952 /* LiveKitWebRTC in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0756A039161167FA08E73829 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		0EEEB58EBF41224937F0E235 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		6EA4CD1B9E3649DE7E9EFBE6 /* MobQABroadcastUpload.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = MobQABroadcastUpload.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FA429DDF7FE34859B019366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		93A5A7EFB91CA8DC99B3DF2B /* WebRTCVideoSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCVideoSource.swift; sourceTree = "<group>"; };
+		9D9D88D4762787407DD865E1 /* MobQADeviceBridgeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobQADeviceBridgeApp.swift; sourceTree = "<group>"; };
+		B87A0A8C4DEDDFEFA94E9855 /* WebRTCProducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCProducer.swift; sourceTree = "<group>"; };
+		C314699520C820AB6FA115B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D92F21F94CDF570692786657 /* MobQADeviceBridge.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = MobQADeviceBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0F508255808DC683D3ECF924 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3486CA351724AFCF1B6A12DF /* LiveKitWebRTC in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28EB7BEA0942984D8422DD9C = {
+			isa = PBXGroup;
+			children = (
+				51C8186CDE728BC08B5FCEE1 /* Broadcast */,
+				690DAFA39FC9CDBEB96870D7 /* Config */,
+				BF3A3F26F49C1F5BAD04716C /* Host */,
+				97BC9C146B9D69B8404F2C18 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		51C8186CDE728BC08B5FCEE1 /* Broadcast */ = {
+			isa = PBXGroup;
+			children = (
+				8FA429DDF7FE34859B019366 /* Info.plist */,
+				0756A039161167FA08E73829 /* SampleHandler.swift */,
+				B87A0A8C4DEDDFEFA94E9855 /* WebRTCProducer.swift */,
+				93A5A7EFB91CA8DC99B3DF2B /* WebRTCVideoSource.swift */,
+			);
+			path = Broadcast;
+			sourceTree = "<group>";
+		};
+		690DAFA39FC9CDBEB96870D7 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				0EEEB58EBF41224937F0E235 /* Base.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		97BC9C146B9D69B8404F2C18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EA4CD1B9E3649DE7E9EFBE6 /* MobQABroadcastUpload.appex */,
+				D92F21F94CDF570692786657 /* MobQADeviceBridge.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF3A3F26F49C1F5BAD04716C /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				C314699520C820AB6FA115B8 /* Info.plist */,
+				9D9D88D4762787407DD865E1 /* MobQADeviceBridgeApp.swift */,
+			);
+			path = Host;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AD2171E952F1FC1C5625C22 /* MobQADeviceBridge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C0BA3073E074B7B18333FF8 /* Build configuration list for PBXNativeTarget "MobQADeviceBridge" */;
+			buildPhases = (
+				4268C0A92462EC8293713B84 /* Sources */,
+				4FF670215FD99BAD9B81D56B /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEA6261C4DB23C5F3D098EF9 /* PBXTargetDependency */,
+			);
+			name = MobQADeviceBridge;
+			packageProductDependencies = (
+			);
+			productName = MobQADeviceBridge;
+			productReference = D92F21F94CDF570692786657 /* MobQADeviceBridge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8951B352DB0DAA8A7647E27 /* MobQABroadcastUpload */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66F4451DD2DC83CDF0198256 /* Build configuration list for PBXNativeTarget "MobQABroadcastUpload" */;
+			buildPhases = (
+				B73CC9826EC5C1A52323AC20 /* Sources */,
+				0F508255808DC683D3ECF924 /* Frameworks */,
+				D9814FEAF528AEA7698F9AD7 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobQABroadcastUpload;
+			packageProductDependencies = (
+				700AF12CA58D755B65EB9ACC /* LiveKitWebRTC */,
+			);
+			productName = MobQABroadcastUpload;
+			productReference = 6EA4CD1B9E3649DE7E9EFBE6 /* MobQABroadcastUpload.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36B72B40592C4C4F0532D269 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3AD2171E952F1FC1C5625C22 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					C8951B352DB0DAA8A7647E27 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B08640D0AF09D7656E00DDA6 /* Build configuration list for PBXProject "MobQADeviceBridge" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 28EB7BEA0942984D8422DD9C;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D87B79B3AC14DDCC5851D93D /* XCRemoteSwiftPackageReference "webrtc-xcframework" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 97BC9C146B9D69B8404F2C18 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8951B352DB0DAA8A7647E27 /* MobQABroadcastUpload */,
+				3AD2171E952F1FC1C5625C22 /* MobQADeviceBridge */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4268C0A92462EC8293713B84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB67960E9A43F51B9413C67 /* MobQADeviceBridgeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B73CC9826EC5C1A52323AC20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5608ED350EE12BE5ED52E896 /* SampleHandler.swift in Sources */,
+				93CAE3BBD817E3EF3442243F /* WebRTCProducer.swift in Sources */,
+				3CDA9F05F70F5C5ED2F12646 /* WebRTCVideoSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEA6261C4DB23C5F3D098EF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8951B352DB0DAA8A7647E27 /* MobQABroadcastUpload */;
+			targetProxy = B11AC4697CCCCD69BB4CF49E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5E4A599C2C826B279F2EF96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Host/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(MOBQA_BUNDLE_ID)";
+				PROVISIONING_PROFILE_SPECIFIER = "$(MOBQA_HOST_PROFILE)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		81DA21D2CC7BFCC8695D1FF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EEEB58EBF41224937F0E235 /* Base.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C9418567D767AB3455A2B779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Host/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(MOBQA_BUNDLE_ID)";
+				PROVISIONING_PROFILE_SPECIFIER = "$(MOBQA_HOST_PROFILE)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D79AC2C72998C6F30BA9EF31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EEEB58EBF41224937F0E235 /* Base.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D9CE12637BBD56048D296A55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Broadcast/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(MOBQA_BUNDLE_ID).broadcast";
+				PROVISIONING_PROFILE_SPECIFIER = "$(MOBQA_BROADCAST_PROFILE)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E2A7B4FAB3BBFB10F7AE8BAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Broadcast/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(MOBQA_BUNDLE_ID).broadcast";
+				PROVISIONING_PROFILE_SPECIFIER = "$(MOBQA_BROADCAST_PROFILE)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C0BA3073E074B7B18333FF8 /* Build configuration list for PBXNativeTarget "MobQADeviceBridge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9418567D767AB3455A2B779 /* Debug */,
+				5E4A599C2C826B279F2EF96C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		66F4451DD2DC83CDF0198256 /* Build configuration list for PBXNativeTarget "MobQABroadcastUpload" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2A7B4FAB3BBFB10F7AE8BAC /* Debug */,
+				D9CE12637BBD56048D296A55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B08640D0AF09D7656E00DDA6 /* Build configuration list for PBXProject "MobQADeviceBridge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D79AC2C72998C6F30BA9EF31 /* Debug */,
+				81DA21D2CC7BFCC8695D1FF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D87B79B3AC14DDCC5851D93D /* XCRemoteSwiftPackageReference "webrtc-xcframework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/livekit/webrtc-xcframework.git";
+			requirement = {
+				kind = exactVersion;
+				version = 144.7559.11;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		700AF12CA58D755B65EB9ACC /* LiveKitWebRTC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D87B79B3AC14DDCC5851D93D /* XCRemoteSwiftPackageReference "webrtc-xcframework" */;
+			productName = LiveKitWebRTC;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 36B72B40592C4C4F0532D269 /* Project object */;
+}

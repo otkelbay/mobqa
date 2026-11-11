@@ -1,0 +1,81 @@
+version: "2"
+
+run:
+  build-tags: [integration, e2e]
+
+linters:
+  default: standard
+  enable:
+    - bodyclose
+    - contextcheck
+    - depguard
+    - errorlint
+    - forcetypeassert
+    - funlen
+    - gochecknoglobals
+    - gochecknoinits
+    - gocritic
+    - lll
+    - misspell
+    - nestif
+    - nilerr
+    - noctx
+    - revive
+    - rowserrcheck
+    - sqlclosecheck
+    - unconvert
+    - unparam
+    - usestdlibvars
+  settings:
+    funlen:
+      lines: 60
+      statements: -1
+    lll:
+      line-length: 120
+    nestif:
+      min-complexity: 4
+    revive:
+      rules:
+        - name: argument-limit
+          arguments: [4]
+    depguard:
+      rules:
+        usecase:
+          files: ["**/internal/usecase/**"]
+          deny:
+            - pkg: github.com/mobqa/backend/internal/transport
+              desc: usecases never know their transport
+            - pkg: github.com/mobqa/backend/internal/store
+              desc: usecases declare interfaces; stores implement them
+            - pkg: github.com/mobqa/backend/internal/app
+              desc: only cmd imports app
+            - pkg: github.com/jackc/pgx
+              desc: SQL lives in store/postgres
+            - pkg: net/http
+              desc: HTTP lives in transport
+        transport:
+          files: ["**/internal/transport/**"]
+          deny:
+            - pkg: github.com/mobqa/backend/internal/store
+              desc: transport calls usecases, never storage
+            - pkg: github.com/mobqa/backend/internal/app
+              desc: only cmd imports app
+            - pkg: github.com/jackc/pgx
+              desc: SQL lives in store/postgres
+        store:
+          files: ["**/internal/store/**"]
+          deny:
+            - pkg: github.com/mobqa/backend/internal/transport
+              desc: storage never knows its callers' transport
+            - pkg: github.com/mobqa/backend/internal/app
+              desc: only cmd imports app
+  exclusions:
+    rules:
+      - path: _test\.go
+        linters: [funlen, forcetypeassert]
+
+formatters:
+  enable: [gofmt, goimports]
+  settings:
+    goimports:
+      local-prefixes: [github.com/mobqa/backend]

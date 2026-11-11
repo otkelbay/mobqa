@@ -1,0 +1,15 @@
+// Defaults for a fresh clone. Put your own values in Config/Local.xcconfig (git-ignored).
+
+MOBQA_BUNDLE_ID = dev.mobqa.bridge
+MOBQA_HOST_PROFILE =
+MOBQA_BROADCAST_PROFILE =
+
+DEVELOPMENT_TEAM =
+CODE_SIGN_STYLE = Automatic
+CODE_SIGN_IDENTITY = Apple Development
+
+MOBQA_WEBRTC_BACKEND_URL = http:/$()/localhost:18080
+MOBQA_WEBRTC_DEVICE_ID =
+MOBQA_WEBRTC_BRIDGE_TOKEN =
+
+#include? "Local.xcconfig"
