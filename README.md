@@ -42,25 +42,25 @@ screen-streaming bridge ([`ios/`](ios/mobqa-ios-bridge)).
 
 ```mermaid
 flowchart LR
-    browser([Browser])
-    llm([LLM provider<br/>OpenAI-compatible])
+    browser(["Browser"])
+    llm(["LLM provider<br/>OpenAI-compatible"])
 
-    subgraph cloud [Server]
-        api[mobqa-api<br/>REST · hub links · run & authoring jobs]
-        worker[mobqa-worker<br/>analysis · generation · indexing · review]
-        db[(PostgreSQL<br/>+ pgvector)]
+    subgraph cloud ["Server"]
+        api["mobqa-api<br/>REST · hub links · run and authoring jobs"]
+        worker["mobqa-worker<br/>analysis · generation · indexing · review"]
+        db[("PostgreSQL<br/>+ pgvector")]
     end
 
-    subgraph office [Any machine with phones]
-        hub[mobqa-hub<br/>device agent · WebRTC SFU]
-        phones[[Android · iOS]]
+    subgraph office ["Any machine with phones"]
+        hub["mobqa-hub<br/>device agent · WebRTC SFU"]
+        phones[["Android · iOS"]]
     end
 
-    browser -- HTTP --> api
-    hub -- outbound WebSocket --> api
-    hub -- adb · devicectl --> phones
-    phones -. H.264 .-> hub
-    hub -. WebRTC .-> browser
+    browser -->|HTTP| api
+    hub -->|outbound WebSocket| api
+    hub -->|adb, devicectl| phones
+    phones -.->|H264 screen| hub
+    hub -.->|WebRTC| browser
     api --- db
     worker --- db
     api --> llm
