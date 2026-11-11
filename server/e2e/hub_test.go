@@ -151,7 +151,7 @@ func (h runningHub) wait(t *testing.T) error {
 // await polls a resource until it satisfies the condition.
 func await[T any](a *api, c call, condition func(T) bool) T {
 	a.t.Helper()
-	deadline := time.Now().Add(5 * time.Second)
+	deadline := time.Now().Add(a.patience)
 	for {
 		var found T
 		a.do(c, http.StatusOK, &found)

@@ -24,8 +24,12 @@ import (
 	"github.com/mobqa/backend/internal/dbtest"
 )
 
-// stopTimeout is how long a binary may take to shut down after SIGTERM.
-const stopTimeout = 10 * time.Second
+const (
+	// stopTimeout is how long a binary may take to shut down after SIGTERM.
+	stopTimeout = 10 * time.Second
+	// processPatience covers a freshly built binary's first start, which macOS delays while it scans it.
+	processPatience = 30 * time.Second
+)
 
 // process is a running binary whose output goes to a file that is shown when the test fails.
 type process struct {
@@ -103,7 +107,7 @@ func freeAddress(t *testing.T) string {
 // awaitHealthy waits for the API to answer its health check, which it does once migrations have run.
 func awaitHealthy(t *testing.T, base string) {
 	t.Helper()
-	deadline := time.Now().Add(30 * time.Second)
+	deadline := time.Now().Add(processPatience)
 	for {
 		request, err := http.NewRequestWithContext(t.Context(), http.MethodGet, base+"/healthz", nil)
 		if err != nil {
@@ -184,7 +188,7 @@ func TestBinariesWorkTogether(t *testing.T) {
 	}, shared...))
 	base := "http://" + address
 	awaitHealthy(t, base)
-	api := &api{t: t, url: base, client: &http.Client{Timeout: 10 * time.Second}}
+	api := &api{t: t, url: base, client: &http.Client{Timeout: 10 * time.Second}, patience: processPatience}
 	ada := register(api)
 	shop := createProject(api, ada.AccessToken, "Shop")
 	reg := registerHub(api, ada.AccessToken, shop.ID, "Device lab")

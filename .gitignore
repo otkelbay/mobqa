@@ -31,6 +31,7 @@ test-results/
 # Go build output
 /server/bin/
 /server/data/
+/server/coverage.out
 
 # Xcode
 xcuserdata/

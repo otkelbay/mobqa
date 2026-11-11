@@ -31,6 +31,9 @@ import (
 	"github.com/mobqa/backend/internal/usecase/knowledge"
 )
 
+// inProcessPatience is enough for background jobs in the test process, which finish in milliseconds.
+const inProcessPatience = 5 * time.Second
+
 type api struct {
 	t      *testing.T
 	app    *app.API
@@ -39,6 +42,8 @@ type api struct {
 	clock  *clocktest.Manual
 	model  *model
 	deps   app.WorkerDependencies
+	// patience bounds how long await waits for a condition the system reaches on its own.
+	patience time.Duration
 }
 
 func newAPI(t *testing.T) *api {
@@ -79,6 +84,7 @@ func newAPI(t *testing.T) *api {
 	t.Cleanup(httpServer.Close)
 	return &api{
 		t: t, app: built, url: httpServer.URL, client: httpServer.Client(), clock: now, model: llm, deps: deps,
+		patience: inProcessPatience,
 	}
 }
 
